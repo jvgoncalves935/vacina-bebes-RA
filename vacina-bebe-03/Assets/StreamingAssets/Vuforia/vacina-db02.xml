@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="marcadorbebe02" size="1.000000 2.873333"/>
+    <ImageTarget name="marcadorbebe" size="1.000000 2.873333"/>
+    <MultiTarget name="MarcadorMult">
+      <Part name="marcadorbebe02" translation="0 0 0" rotation="AD: 1 0 0 0" />
+      <Part name="marcadorbebe" translation="5 0 0" rotation="AD: 1 0 0 0" />
+    </MultiTarget>
+  </Tracking>
+</QCARConfig>

@@ -44,9 +44,9 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
-    - vacina-db
+    - vacina-db02
     dataSetsToActivate:
-    - vacina-db
+    - vacina-db02
   videoBackground:
     clippingMode: 0
     numDivisions: 2

@@ -34,6 +34,8 @@ public class ImageTargetController : MonoBehaviour
     private bool xFlip = false;
 
     private Image targetImage;
+    
+    public MarcadorController marcadorController;
 
     public Target Target()
     {
@@ -185,6 +187,17 @@ public class ImageTargetController : MonoBehaviour
     public void OnTracking(Matrix4x4 pose)
     {
         Debug.Log("[EasyAR] OnTracking targtet name: " + target.name());
+        
+        /*
+        if(target.name() == "marcador"){
+            marcadorController.AtivarMarcador01();
+        }
+
+        if(target.name() == "marcador02"){
+            marcadorController.AtivarMarcador02();
+        }
+        */
+        
         Utility.SetMatrixOnTransform(transform, pose);
         if (xFlip)
         {
@@ -199,6 +212,15 @@ public class ImageTargetController : MonoBehaviour
     public void OnLost()
     {
         Debug.Log("[EasyAR] OnLost targtet name: " + target.name());
+
+        if(target.name() == "marcador"){
+            marcadorController.DesativarMarcador01();
+        }
+
+        if(target.name() == "marcador02"){
+            marcadorController.DesativarMarcador02();
+        }
+
         gameObject.SetActive(false);
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -210,6 +232,15 @@ public class ImageTargetController : MonoBehaviour
     {
         Debug.Log("[EasyAR] OnFound targtet name: " + target.name());
         gameObject.SetActive(true);
+
+        if(target.name() == "marcador"){
+            marcadorController.AtivarMarcador01();
+        }
+
+        if(target.name() == "marcador02"){
+            marcadorController.AtivarMarcador02();
+        }
+
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(true);

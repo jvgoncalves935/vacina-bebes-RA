@@ -187,7 +187,12 @@ public class ImageTargetController : MonoBehaviour
     public void OnTracking(Matrix4x4 pose)
     {
         Debug.Log("[EasyAR] OnTracking targtet name: " + target.name());
-        
+        /*
+        if(!marcadorController.MarcadoresAtivados()){
+            DesativarObjetos();
+            return;
+        }
+        */
         /*
         if(target.name() == "marcador"){
             marcadorController.AtivarMarcador01();
@@ -221,18 +226,12 @@ public class ImageTargetController : MonoBehaviour
             marcadorController.DesativarMarcador02();
         }
 
-        gameObject.SetActive(false);
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(false);
-        }
+        DesativarObjetos();
     }
 
     public void OnFound()
     {
         Debug.Log("[EasyAR] OnFound targtet name: " + target.name());
-        gameObject.SetActive(true);
-
         if(target.name() == "marcador"){
             marcadorController.AtivarMarcador01();
         }
@@ -240,16 +239,27 @@ public class ImageTargetController : MonoBehaviour
         if(target.name() == "marcador02"){
             marcadorController.AtivarMarcador02();
         }
-
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(true);
-        }
+        AtivarObjetos();
+        
     }
 
     private void OnDestroy()
     {
         if (ImageTracker != null)
             ImageTracker.UnloadImageTarget(this, (target, status) => { Debug.Log("[EasyAR] Targtet name: " + target.name() + " Target runtimeID: " + target.runtimeID() + " load status: " + status); });
+    }
+    private void AtivarObjetos(){
+        gameObject.SetActive(true);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
+    private void DesativarObjetos(){
+        gameObject.SetActive(false);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 }

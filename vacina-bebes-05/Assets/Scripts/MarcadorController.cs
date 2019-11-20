@@ -26,4 +26,7 @@ public class MarcadorController : MonoBehaviour {
 	public void DesativarMarcador02(){
 		marcador02Ativado = false;
 	}
+	public bool MarcadoresAtivados(){
+		return marcador01Ativado && marcador02Ativado;
+	}
 }

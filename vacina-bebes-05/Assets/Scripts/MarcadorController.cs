@@ -41,6 +41,6 @@ public class MarcadorController : MonoBehaviour {
 		Debug.Log(trMarcador01.position+" "+trMarcador02.position);
 	}
 	public Vector3 CentralizarImagemMarcador(){
-		return Vector3.Lerp(trMarcador01.position, trMarcador02.position, 0.5f);
+		return Vector3.Lerp(trMarcador01.position, trMarcador02.position, 0.5f) + new Vector3(0.0f,-0.2f,0.0f);
     }
 }

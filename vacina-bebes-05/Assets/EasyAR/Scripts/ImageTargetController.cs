@@ -216,8 +216,8 @@ public class ImageTargetController : MonoBehaviour
         }
 
         transform.localScale = transform.localScale * TargetSize;
-        if(target.name() == "marcador01"){
-            marcadorController.PrintPosicoes();
+        if(target.name() == "marcador01" && marcadorController.MarcadoresAtivados()){
+            transform.position = marcadorController.CentralizarImagemMarcador();
         }
     }
 
@@ -270,7 +270,5 @@ public class ImageTargetController : MonoBehaviour
         }
     }
 
-    private void CentralizarMarcador(){
-
-    }
+    
 }

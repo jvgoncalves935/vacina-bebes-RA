@@ -195,16 +195,16 @@ public class ImageTargetController : MonoBehaviour
         }else{
             AtivarObjetos();
         }
-        
-        /*
-        if(target.name() == "marcador01"){
-            marcadorController.AtivarMarcador01();
-        }
 
-        if(target.name() == "marcador02"){
-            marcadorController.AtivarMarcador02();
+        if(target.name() == "marcador01"){
+            marcadorController.SetPosicaoMarcador01(transform);
+            //marcadorController.AtivarMarcador02();
         }
-        */
+        if(target.name() == "marcador02"){
+            marcadorController.SetPosicaoMarcador02(transform);
+            //marcadorController.AtivarMarcador02();
+        }
+        
         
         
         Utility.SetMatrixOnTransform(transform, pose);
@@ -216,6 +216,9 @@ public class ImageTargetController : MonoBehaviour
         }
 
         transform.localScale = transform.localScale * TargetSize;
+        if(target.name() == "marcador01"){
+            marcadorController.PrintPosicoes();
+        }
     }
 
     public void OnLost()
@@ -265,5 +268,9 @@ public class ImageTargetController : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
+    }
+
+    private void CentralizarMarcador(){
+
     }
 }

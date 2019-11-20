@@ -5,6 +5,8 @@ using UnityEngine;
 public class MarcadorController : MonoBehaviour {
 	public bool marcador01Ativado;
     public bool marcador02Ativado;
+	public Transform trMarcador01;
+	public Transform trMarcador02;
 	// Use this for initialization
 	void Start () {
 		
@@ -28,5 +30,14 @@ public class MarcadorController : MonoBehaviour {
 	}
 	public bool MarcadoresAtivados(){
 		return marcador01Ativado && marcador02Ativado;
+	}
+	public void SetPosicaoMarcador01(Transform transform){
+		trMarcador01 = transform;
+	}
+	public void SetPosicaoMarcador02(Transform transform){
+		trMarcador02 = transform;
+	}
+	public void PrintPosicoes(){
+		Debug.Log(trMarcador01.position+" "+trMarcador02.position);
 	}
 }

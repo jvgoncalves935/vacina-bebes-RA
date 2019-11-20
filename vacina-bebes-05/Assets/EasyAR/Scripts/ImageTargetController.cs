@@ -187,12 +187,14 @@ public class ImageTargetController : MonoBehaviour
     public void OnTracking(Matrix4x4 pose)
     {
         Debug.Log("[EasyAR] OnTracking targtet name: " + target.name());
-        /*
+        
         if(!marcadorController.MarcadoresAtivados()){
             DesativarObjetos();
             return;
+        }else{
+            AtivarObjetos();
         }
-        */
+        
         /*
         if(target.name() == "marcador"){
             marcadorController.AtivarMarcador01();

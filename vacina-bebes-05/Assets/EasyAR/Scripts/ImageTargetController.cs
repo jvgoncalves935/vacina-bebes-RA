@@ -188,6 +188,7 @@ public class ImageTargetController : MonoBehaviour
     {
         Debug.Log("[EasyAR] OnTracking targtet name: " + target.name());
         
+        
         if(!marcadorController.MarcadoresAtivados()){
             DesativarObjetos();
             return;
@@ -196,7 +197,7 @@ public class ImageTargetController : MonoBehaviour
         }
         
         /*
-        if(target.name() == "marcador"){
+        if(target.name() == "marcador01"){
             marcadorController.AtivarMarcador01();
         }
 
@@ -204,6 +205,7 @@ public class ImageTargetController : MonoBehaviour
             marcadorController.AtivarMarcador02();
         }
         */
+        
         
         Utility.SetMatrixOnTransform(transform, pose);
         if (xFlip)
@@ -220,7 +222,7 @@ public class ImageTargetController : MonoBehaviour
     {
         Debug.Log("[EasyAR] OnLost targtet name: " + target.name());
 
-        if(target.name() == "marcador"){
+        if(target.name() == "marcador01"){
             marcadorController.DesativarMarcador01();
         }
 
@@ -234,7 +236,7 @@ public class ImageTargetController : MonoBehaviour
     public void OnFound()
     {
         Debug.Log("[EasyAR] OnFound targtet name: " + target.name());
-        if(target.name() == "marcador"){
+        if(target.name() == "marcador01"){
             marcadorController.AtivarMarcador01();
         }
 
